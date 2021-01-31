@@ -1,16 +1,25 @@
-# This is a sample Python script.
-
-# Press Shift+F10 to execute it or replace it with your code.
-# Press Double Shift to search everywhere for classes, files, tool windows, actions, and settings.
+from random import randint
 
 
-def print_hi(name):
-    # Use a breakpoint in the code line below to debug your script.
-    print(f'Hi, {name}')  # Press Ctrl+F8 to toggle the breakpoint.
+def start():
+    print('''
+    #################### Игра "15 спичек" ################
+    Всего в куче 15 спичек. Каждый игрок по очерди берёт от 
+    ################### 1 до 3 спичек. ####################
+    Выигрывает тот, кто заберёт последние спички из кучи.
+    ''')
 
 
-# Press the green button in the gutter to run the script.
-if __name__ == '__main__':
-    print_hi('PyCharm')
-
-# See PyCharm help at https://www.jetbrains.com/help/pycharm/
+def get_turn():
+    print('''
+    Введите 0, чтобы ходить первым.
+    Введите 1, чтобы первым ходил компьютер.
+    Введите 2, чтобы очерёдность хода выбиралась случайно.
+    ''')
+    turn = input()
+    while not (turn == '0' or turn == '1' or turn == '2'):
+        print('Ошибка! Проверьте корректность вашего ввода. Вы должны ввести 0, 1 или 2.')
+        turn = input()
+    if turn == '2':
+        turn = randint(0, 1)
+    return int(turn)
